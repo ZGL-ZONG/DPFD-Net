@@ -20,14 +20,14 @@
    *   Scenarios: Indoor/outdoor, various lighting conditions
    *   Format: .jpg images + .txt format annotations
    下载地址：[Biendata Platform](https://github.com/dlut-dimt/TarDAL)
-   ├── data
-   │    ├── HIT-UAV/
-   │      │   ├── images/          # Images
-   │      │   ├── labels/          # Text annotation files
-   │      │   ├── split/           # Dataset split for images/labels
-   │    ├── M3FD-i/
-   │      │   ├── images/          # Infrared images
-   │      │   ├── labels/          # Text annotation files
+   ├── data<br/>
+   │    ├── HIT-UAV/<br/>
+   │      │   ├── images/          # Images<br/>
+   │      │   ├── labels/          # Text annotation files<br/>
+   │      │   ├── split/           # Dataset split for images/labels<br/>
+   │    ├── M3FD-i/<br/>
+   │      │   ├── images/          # Infrared images<br/>
+   │      │   ├── labels/          # Text annotation files<br/>
    │      │   ├── split/           # Dataset split for images/labels<br/>
    
 #🌈 Code Information.<br/>
