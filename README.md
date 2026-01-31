@@ -37,16 +37,16 @@
     python val.py<br/>
 
 #🌈‎Requirements.txt <br/>
-   matplotlib>=3.3.0
-   numpy>=1.22.2 # pinned by Snyk to avoid a vulnerability
-   opencv-python>=4.6.0
-   pillow>=7.1.2
-   pyyaml>=5.3.1
-   requests>=2.23.0
-   scipy>=1.4.1
-   torch>=1.8.0
-   torchvision>=0.9.0
-   tqdm>=4.64.0
+   matplotlib>=3.3.0<br/>
+   numpy>=1.22.2 # pinned by Snyk to avoid a vulnerability<br/>
+   opencv-python>=4.6.0<br/>
+   pillow>=7.1.2<br/>
+   pyyaml>=5.3.1<br/>
+   requests>=2.23.0<br/>
+   scipy>=1.4.1<br/>
+   torch>=1.8.0<br/>
+   torchvision>=0.9.0<br/>
+   tqdm>=4.64.0<br/>
 
 
 
