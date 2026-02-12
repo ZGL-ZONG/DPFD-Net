@@ -6,8 +6,7 @@ from prettytable import PrettyTable
 from ultralytics import RTDETR
 from ultralytics.utils.torch_utils import model_info
 
-# 精度小数点保留位数修改问题可看<使用说明.md>下方的<YOLOV8源码常见疑问解答小课堂>第五点
-# 最终论文的参数量和计算量统一以这个脚本运行出来的为准
+
 
 def get_weight_size(path):
     stats = os.stat(path)
@@ -15,9 +14,9 @@ def get_weight_size(path):
 
 if __name__ == '__main__':
     model_path = 'runs/train/exp/weights/best.pt'
-    model = RTDETR(model_path) # 选择训练好的权重路径
+    model = RTDETR(model_path) # 
     result = model.val(data='/root/dataset/dataset_visdrone/data.yaml',
-                      split='test', # split可以选择train、val、test 根据自己的数据集情况来选择.
+                      split='test', # 
                       imgsz=640,
                       batch=4,
                     #   save_json=True, # if you need to cal coco metrice
@@ -25,7 +24,7 @@ if __name__ == '__main__':
                       name='exp',
                       )
     
-    if model.task == 'detect': # 仅目标检测任务适用
+    if model.task == 'detect': # 
         model_names = list(result.names.values())
         preprocess_time_per_image = result.speed['preprocess']
         inference_time_per_image = result.speed['inference']
@@ -34,15 +33,12 @@ if __name__ == '__main__':
         
         n_l, n_p, n_g, flops = model_info(model.model)
         
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
-        print('-'*20 + '论文上的数据以以下结果为准' + '-'*20)
+        print('-'*20 + 'The data in this paper are based on the following results.' + '-'*20)
+
 
         model_info_table = PrettyTable()
         model_info_table.title = "Model Info"
-        model_info_table.field_names = ["GFLOPs", "Parameters", "前处理时间/一张图", "推理时间/一张图", "后处理时间/一张图", "FPS(前处理+模型推理+后处理)", "FPS(推理)", "Model File Size"]
+        model_info_table.field_names = ["GFLOPs", "Parameters", "Pre-processing time / Single image", "Inference time / Single image", "Post-processing time / Translate one image", "FPS(Pre-processing + Model inference + Post-processing)", "FPS(Inference)", "Model File Size"]
         model_info_table.add_row([f'{flops:.1f}', f'{n_p:,}', 
                                   f'{preprocess_time_per_image / 1000:.6f}s', f'{inference_time_per_image / 1000:.6f}s', 
                                   f'{postprocess_time_per_image / 1000:.6f}s', f'{1000 / all_time_per_image:.2f}', 
@@ -63,7 +59,7 @@ if __name__ == '__main__':
                                         f"{result.box.ap[idx]:.4f}"
                                     ])
         model_metrice_table.add_row([
-                                    "all(平均数据)", 
+                                    "all", 
                                     f"{result.results_dict['metrics/precision(B)']:.4f}", 
                                     f"{result.results_dict['metrics/recall(B)']:.4f}", 
                                     f"{np.mean(result.box.f1):.4f}", 
@@ -78,8 +74,4 @@ if __name__ == '__main__':
             f.write('\n')
             f.write(str(model_metrice_table))
         
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
-        print('-'*20, f'结果已保存至{result.save_dir}/paper_data.txt...', '-'*20)
+        print('-'*20, f'The results have been saved to{result.save_dir}/paper_data.txt...', '-'*20)
