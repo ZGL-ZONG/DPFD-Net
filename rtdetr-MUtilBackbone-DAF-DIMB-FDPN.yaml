@@ -3,7 +3,7 @@ scales: # model compound scaling constants, i.e. 'model=yolov8n-cls.yaml' will c
   # [depth, width, max_channels]
   l: [1.00, 1.00, 1024]
 
-# From BiliBili 魔鬼面具
+
 backbone:
   - [-1, 1, HGStem, [16, 32]]  # 0-P2/4
 
@@ -58,5 +58,6 @@ head:
   - [30, 1, nn.Upsample, [None, 2, 'nearest']] # 22-P3/8                  34
   - [[27, 34, 29], 1, Concat, [1]]  #                                     35
   - [-1, 4, RepC3, [256, 0.5]]  # 24-P3/8                                 36
+
 
   - [[36, 30, 33], 1, RTDETRDecoder, [nc, 256, 300, 4, 8, 3]]  # RTDETRDecoder(P3, P4, P5)
